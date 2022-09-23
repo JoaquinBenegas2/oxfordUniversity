@@ -7,6 +7,7 @@ import EditAlumnos from "../views/Alumnos/EditAlumnos";
 import ViewAlumnos from "../views/Alumnos/ViewAlumnos";
 
 import ListMatAlumno from "../views/Alumnos/ListMatAlumno";
+import EditMatAlumno from "../views/Alumnos/EditMatAlumno";
 
 import ListProfesores from "../views/Profesores/ListProfesores"
 import SaveProfesores from "../views/Profesores/SaveProfesores";
@@ -28,6 +29,7 @@ export default function RoutesComponent() {
                 <Route path="/alumnos/view/:cod" element={<ViewAlumnos />} />
                 
                 <Route path="/alumnos/materias/:cod" element={<ListMatAlumno />} />
+                <Route path="/alumnos/materias/edit/:cod_alumno/:cod_mat" element={<EditMatAlumno />} />
 
                 <Route path="/profesores" element={<ListProfesores />} />
                 <Route path="/profesores/add" element={<SaveProfesores />} />

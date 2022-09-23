@@ -59,14 +59,14 @@ const ShowTable = ({ matsAlumno, deleteMatAlumno, cod_alumno }) => {
                 <tbody>
                     { matsAlumno?.map( (mat) => (
                             <tr key={mat.cod_mat}>
-                                <td>{materias[mat.cod_mat - 1].nom_mat}</td>
-                                <td>{materias[mat.cod_mat - 1].desc_mat}</td>
+                                <td>{materias[materias.findIndex(elemento => elemento.cod_mat === mat.cod_mat)].nom_mat}</td>
+                                <td>{materias[materias.findIndex(elemento => elemento.cod_mat === mat.cod_mat)].desc_mat}</td>
                                 <td>{mat.nota1_mat}</td>
                                 <td>{mat.nota2_mat}</td>
                                 <td>{mat.nota3_mat}</td>
                                 <td>{mat.promedio_mat}</td>
                                 <td className="flex gap-5">
-                                    <Link to={`/alumnos/edit/${mat.cod_alumno}/${mat.cod_mat}`}>
+                                    <Link to={`/alumnos/materias/edit/${mat.cod_alumno}/${mat.cod_mat}`}>
                                         <button>
                                             <i className="fa-solid fa-pen text-orange bg-lightOrange p-5 icon"></i>
                                         </button>
@@ -80,7 +80,7 @@ const ShowTable = ({ matsAlumno, deleteMatAlumno, cod_alumno }) => {
                     ) }
                 </tbody>
             </table>
-            <Link to="/alumnos/add/">
+            <Link to="/alumnos/materias/add/">
                 <button 
                     className="button py-4 px-12 bg-darkBlue text-white font-bold"> 
                     AGREGAR
